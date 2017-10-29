@@ -1,5 +1,6 @@
 import os
 import csv
+import sys
 
 """
 ------- PyPoll--------
@@ -57,7 +58,19 @@ with open(filepath, newline="") as election_results:
     print(f"Winner: {max(candidates, key=candidates.get)}")
     print("----------------------------")
 
+    #print the same results to a text file
+    sys.stdout = open("PyPoll_output.txt", "w")
 
+    print(f"\nElection Results ({filepath})")
+    print("----------------------------")
+    print(f"Total Votes: {total_votes}")
+    print("----------------------------")
+     #calculate percentage of votes per candidate & save it in the second list entry
+    for key in candidates.keys():
+        print(f"{key}: {candidates[key][1]}% ({candidates[key][0]})")
+    print("----------------------------")
+    print(f"Winner: {max(candidates, key=candidates.get)}")
+    print("----------------------------")
 
 
 

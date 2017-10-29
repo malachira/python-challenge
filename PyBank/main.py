@@ -1,6 +1,7 @@
 
 import os
 import csv
+import sys
 
 """ PyBank
     --------------------
@@ -79,6 +80,16 @@ with open(filepath, newline="") as budget_data_file:
     print(f"Greatest Increase in Revenue: {max_key} (${revenue_chng[max_key]})")
     print(f"Greatest Decrease in Revenue: {min_key} (${revenue_chng[min_key]})\n")
 
+    #print the same results to a text file
+    sys.stdout = open("PyBank_output.txt", "w")
 
+    print(f"\nFinancial Analysis ({filepath})")
+    print("----------------------------")
+
+    print(f"Total Months: {total_months}")
+    print(f"Total Revenue: ${total_revenue}")
+    print(f"Average Revenue Change: ${avg_revenue_chng}")
+    print(f"Greatest Increase in Revenue: {max_key} (${revenue_chng[max_key]})")
+    print(f"Greatest Decrease in Revenue: {min_key} (${revenue_chng[min_key]})\n")
 
 
